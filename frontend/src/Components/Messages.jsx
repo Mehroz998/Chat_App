@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 import useGetRealtimeMessage from "../hooks/useGetRealtimeMessage";
 
 const Messages = () => {
-  useGetRealtimeMessage();
   useGetMessages();
+  useGetRealtimeMessage();
   const { messages } = useSelector((store) => store.message);
   const { selectedUser } = useSelector((store) => store.user);
   const messagesEndRef = useRef(null);
@@ -22,7 +22,7 @@ const Messages = () => {
 
   return (
     <div className="px-4 flex flex-col h-full"> {/* Removed extra scroll */}
-      {messages.map((message) => (
+      {messages?.map((message) => (
         <Message key={message._id} message={message} />
       ))}
       <div ref={messagesEndRef} className="h-1"></div> {/* Last message reference */}

@@ -30,8 +30,6 @@ export const sendMessage = async (req, res) => {
         // Push the new message ID to the conversation's messages array
         if (gotConversation && newMessage) {
             gotConversation.messages.push(newMessage._id);
-            // await gotConversation.save(); // Save the updated conversation
-            // await newMessage.save();
         }
         await Promise.all([gotConversation.save(),newMessage.save()])
 

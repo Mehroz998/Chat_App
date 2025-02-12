@@ -11,7 +11,9 @@ const Navbar = () => {
   const navigate = useNavigate()
   const logoutHandler = async () => {
     try {
-      let res = await fetch("http://localhost:8080/api/v1/user/logout");
+      let res = await fetch("http://localhost:8080/api/v1/user/logout",{
+        credentials:'include'
+      });
       res = await res.json();
       toast.success(res.message, {
         position: "top-center",
@@ -22,10 +24,10 @@ const Navbar = () => {
         draggable: true,
         progress: undefined,
       });
-      navigate('/login')
+
+      navigate('/')
       dispatch(setAuthUser(null))
       dispatch(setSelectedUser(null))
-      
     } catch (error) {
       console.log(error);
     }

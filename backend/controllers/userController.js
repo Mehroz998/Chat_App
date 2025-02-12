@@ -60,15 +60,23 @@ export const login = async (req,res)=>{
     }
 }
 
-export const logout = (req,res)=>{
-    try{
-        return res.cookie('token','',{maxAge:0}).json({
-            message:"Logout Successfullty"
-        })
-    }catch(error){
-        console.log(error); 
+export const logout = (req, res) => {
+    try {
+        res.clearCookie("token", {
+            httpOnly: true,
+            secure: false, // ⛔ Change to true in production
+            sameSite: "Lax"
+        });
+
+        return res.json({ message: "Logout Successfully" });
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Internal Server Error" });
     }
-}
+};
+
+
 
 export const getotherUsers = async (req,res)=>{
     try {

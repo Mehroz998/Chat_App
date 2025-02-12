@@ -17,8 +17,9 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  blacklist: ['socket']
+  whitelist: ['user', 'message'] // ✅ Sirf inko persist karein
 };
+
 
 const rootReducer = combineReducers({
     user: userReducer,

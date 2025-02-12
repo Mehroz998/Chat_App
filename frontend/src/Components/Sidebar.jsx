@@ -13,7 +13,7 @@ const Sidebar = () => {
     e.preventDefault();
     if (!otherUsers) return; // ✅ Agar `otherUsers` null hai to function exit kar dein
 
-    const filteredUsers = otherUsers.filter((user) =>
+    const filteredUsers = otherUsers?.filter((user) =>
       user?.name?.toLowerCase().includes(search.toLowerCase()) ||
       user?.username?.toLowerCase().includes(search.toLowerCase())
     );
