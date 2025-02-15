@@ -4,7 +4,7 @@ import Login from "./Components/Login.jsx"
 import Signup from "./Components/Signup.jsx" 
 import './App.css';
 import { io } from "socket.io-client";
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import { useSelector , useDispatch } from 'react-redux';
 import { setSocket } from './redux/socketSlice.js';
 import { setOnlineUsers } from './redux/userSlice.js';
