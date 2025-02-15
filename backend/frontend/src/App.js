@@ -26,7 +26,7 @@ const router = createBrowserRouter([
 
 function App() {
   const {authUser} = useSelector(store=>store.user)
-  const {socket} = useSelector(store=>store.socket)
+  // const {socket} = useSelector(store=>store.socket)
   const dispatch = useDispatch()
   
   useEffect(()=>{
@@ -45,7 +45,7 @@ function App() {
         socket.close()
       }
     }
-  },[authUser])
+  },[authUser,dispatch])
   return (
     <div className="lg:p-4 h-screen flex items-center justify-center">
       <RouterProvider router={router}/>

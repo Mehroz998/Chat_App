@@ -17,7 +17,7 @@ const useGetMessages = () => {
         }
     } 
     fetchMessages()
-  },[selectedUser])
+  },[selectedUser,dispatch])
 }
 
 export default useGetMessages
