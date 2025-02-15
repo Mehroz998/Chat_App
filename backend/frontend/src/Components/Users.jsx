@@ -1,7 +1,7 @@
 import React from 'react'
 import User from './User.jsx'
 import {useSelector} from 'react-redux'
-import useGetOtherUsers from '../hooks/useGetOtherUsers'
+import useGetOtherUsers from '../hooks/useGetOtherUsers.jsx'
 
 const Users = ({filters}) => {
   useGetOtherUsers()
