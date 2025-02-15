@@ -40,7 +40,7 @@ const Signup = () => {
           draggable: true,
           progress: undefined,
         })
-        navigate("/login")
+        navigate("/")
       }
     } catch (error) {
       toast.error(error,{
@@ -147,7 +147,7 @@ const Signup = () => {
           </label>
           <button type="submit" className="btn btn-outline w-full glass text-lg mt-3">Submit</button>
         </form>
-        <div className="w-full flex items-center justify-center mt-3"><Link to="/login" className="text-white text-center" >Already hava an Account? Login</Link></div>
+        <div className="w-full flex items-center justify-center mt-3"><Link to="/" className="text-white text-center" >Already hava an Account? Login</Link></div>
       </div>
     </div>
   );
