@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-  origin: "outrageous-sisile-mehrozali-f62a59fb.koyeb.app/",  // ✅ Specific frontend origin
+  origin: "https://outrageous-sisile-mehrozali-f62a59fb.koyeb.app",  // ✅ Specific frontend origin
   credentials: true,  // ✅ Allow cookies
   }))
 app.options("*", cors());  // ✅ Allow preflight requests
