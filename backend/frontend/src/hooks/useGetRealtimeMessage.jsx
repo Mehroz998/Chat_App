@@ -10,7 +10,7 @@ const useGetRealtimeMessage = () => {
     socket?.on('newMessage',(newMessage)=>{
         dispatch(setMessages([...messages , newMessage]))
     })
-  },[socket , messages , dispatch])
+  },[socket , messages , setMessages])
   
 }
 
