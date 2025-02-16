@@ -8,7 +8,7 @@ const server = http.createServer(app)
 
 const io = new Server(server, {
     cors: {
-      origin: "http://localhost:3000", // Tumhare frontend ka URL
+      origin: "outrageous-sisile-mehrozali-f62a59fb.koyeb.app/", // Tumhare frontend ka URL
       methods: ["GET", "POST"],
     },
 });
