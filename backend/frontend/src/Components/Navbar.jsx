@@ -11,7 +11,7 @@ const Navbar = () => {
   const navigate = useNavigate()
   const logoutHandler = async () => {
     try {
-      let res = await fetch("http://localhost:8080/api/v1/user/logout",{
+      let res = await fetch("https://severe-annabell-mehrozali-9d0db8b7.koyeb.app/api/v1/user/logout",{
         credentials:'include'
       });
       res = await res.json();

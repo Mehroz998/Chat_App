@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-  origin: "http://localhost:3000",  // ✅ Specific frontend origin
+  origin: "https://severe-annabell-mehrozali-9d0db8b7.koyeb.app",  // ✅ Specific frontend origin
   credentials: true,  // ✅ Allow cookies
   }))
 app.options("*", cors());  // ✅ Allow preflight requests

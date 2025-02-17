@@ -12,7 +12,7 @@ const SendInput = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch(`http://localhost:8080/api/v1/message/send/${selectedUser._id}`, {
+      let res = await fetch(`https://severe-annabell-mehrozali-9d0db8b7.koyeb.app/api/v1/message/send/${selectedUser._id}`, {
         credentials: "include",
         method: "POST",
         headers: {

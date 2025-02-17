@@ -7,7 +7,7 @@ const useGetOtherUsers = () => {
     useEffect(()=>{
         const fetchusers = async ()=>{
             try {
-                let res = await fetch("http://localhost:8080/api/v1/user/",{credentials:'include'})
+                let res = await fetch("https://severe-annabell-mehrozali-9d0db8b7.koyeb.app/api/v1/user/",{credentials:'include'})
                 res = await res.json()
                 dispatch(setOtherUsers(res))
             } catch (error) {

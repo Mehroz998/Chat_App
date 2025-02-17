@@ -16,7 +16,7 @@ const Signup = () => {
 
   const onSubmit = async (data) => {
     try {
-      let res = await fetch("http://localhost:8080/api/v1/user/register",{
+      let res = await fetch("https://severe-annabell-mehrozali-9d0db8b7.koyeb.app/api/v1/user/register",{
         mode:"cors",
         method:"POST",
         headers:{
