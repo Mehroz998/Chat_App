@@ -25,13 +25,11 @@ app.use("/api/v1/user",userRoute);
 app.use("/api/v1/message",messageRoute);
 
 // -----deployement--------
-if(process.env.NODE_ENV === 'production'){
-  const dirPath = path.resolve()
-  app.use(express.static("./frontend/build"))
-  app.get('*',(req,res)=>{
-    res.sendFile(path.resolve(dirPath, './frontend/build','index.html'))
-  })
-}
+const dirPath = path.resolve()
+app.use(express.static("./frontend/build"))
+app.get('*',(req,res)=>{
+  res.sendFile(path.resolve(dirPath, './frontend/build','index.html'))
+})
 
 server.listen(PORT,()=>{
     connectDB()
