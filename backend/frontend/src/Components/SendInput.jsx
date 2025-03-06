@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { IoSend } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { setMessages } from "../redux/messageSlice";
+import { Url } from './Context/context'
+import { useContext } from 'react'
 
 const SendInput = () => {
+  const url = useContext(Url)
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
   const { selectedUser } = useSelector((store) => store.user);
@@ -12,7 +15,7 @@ const SendInput = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch(`https://severe-annabell-mehrozali-9d0db8b7.koyeb.app/api/v1/message/send/${selectedUser._id}`, {
+      let res = await fetch(`${url}/api/v1/message/send/${selectedUser._id}`, {
         credentials: "include",
         method: "POST",
         headers: {

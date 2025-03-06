@@ -4,8 +4,11 @@ import { useForm } from "react-hook-form"
 import {toast } from 'react-toastify';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { Url } from './Context/context'
+import { useContext } from 'react'
 
 const Signup = () => {
+  const url = useContext(Url)
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false);
   const [confirmPassword , setConfirmPassword] = useState(false)
@@ -16,7 +19,7 @@ const Signup = () => {
 
   const onSubmit = async (data) => {
     try {
-      let res = await fetch("https://severe-annabell-mehrozali-9d0db8b7.koyeb.app/api/v1/user/register",{
+      let res = await fetch(`${url}/api/v1/user/register`,{
         mode:"cors",
         method:"POST",
         headers:{

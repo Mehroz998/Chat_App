@@ -4,14 +4,17 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useSelector , useDispatch } from "react-redux";
 import { setAuthUser, setSelectedUser} from "../redux/userSlice";
+import { Url } from './Context/context'
+import { useContext } from 'react'
 
 const Navbar = () => {
+  const url = useContext(Url)
   const dispatch = useDispatch()
   const {authUser , selectedUser} = useSelector(store=>store.user)
   const navigate = useNavigate()
   const logoutHandler = async () => {
     try {
-      let res = await fetch("https://severe-annabell-mehrozali-9d0db8b7.koyeb.app/api/v1/user/logout",{
+      let res = await fetch(`${url}/api/v1/user/logout`,{
         credentials:'include'
       });
       res = await res.json();

@@ -9,13 +9,13 @@ import path from 'path'
 import {app , server} from './socket/socket.js'
 dotenv.config({});
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // middleware
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-  origin: "https://severe-annabell-mehrozali-9d0db8b7.koyeb.app",  // ✅ Specific frontend origin
+  origin: "http://localhost:8080",  // ✅ Specific frontend origin
   credentials: true,  // ✅ Allow cookies
   }))
 app.options("*", cors());  // ✅ Allow preflight requests
@@ -26,10 +26,17 @@ app.use("/api/v1/message",messageRoute);
 
 // -----deployement--------
 const dirPath = path.resolve()
-app.use(express.static("./frontend/build"))
-app.get('*',(req,res)=>{
-  res.sendFile(path.resolve(dirPath, './frontend/build','index.html'))
-})
+if(process.env.NODE_ENV == 'production'){
+  app.use(express.static(path.join(dirPath , '/frontend/build')))
+  app.get('*',(req,res)=>{
+    res.sendFile(path.resolve(dirPath, 'frontend','build','index.html'))
+  })
+}else{
+  app.get('/',(req,res)=>{
+    res.send('API is running succesfully')
+  })
+}
+
 
 server.listen(PORT,()=>{
     connectDB()

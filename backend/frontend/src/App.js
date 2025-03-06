@@ -31,7 +31,7 @@ function App() {
   
   useEffect(()=>{
     if(authUser){
-      let socket = io('https://severe-annabell-mehrozali-9d0db8b7.koyeb.app',{
+      let socket = io('http://localhost:8080',{
         query:{
           userId:authUser._id,
         }

@@ -5,8 +5,11 @@ import {toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setAuthUser } from '../redux/userSlice';
+import { useContext } from 'react';
+import { Url } from '../hooks/Context/context';
 
 const Login = () => {
+  const url = useContext(Url)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [showPassword, setShowPassword] = useState(false);
@@ -17,7 +20,7 @@ const Login = () => {
 
     const onSubmit = async (data) => {
         try {
-          let res = await fetch("https://severe-annabell-mehrozali-9d0db8b7.koyeb.app/api/v1/user/login",{
+          let res = await fetch(`${url}/api/v1/user/login`,{
             mode:"cors",
             method:"POST",
             headers:{
